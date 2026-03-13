@@ -36,18 +36,47 @@ export default async function PackagePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* What's included */}
+      {/* What's included — real products */}
       <section className="py-16 px-6 border-b border-slate-800/60">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-8">What&apos;s included</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">What&apos;s in the kit</h2>
+          <p className="text-slate-500 text-sm mb-8">Every product selected for compatibility, quality, and ease of setup.</p>
           <div className="space-y-3">
-            {pkg.includes.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-slate-900/60 border border-slate-800 rounded-xl px-5 py-4">
-                <span className="text-amber-500 font-bold mt-0.5">✓</span>
-                <span className="text-slate-200 text-sm">{item}</span>
+            {pkg.products.filter(p => p.price > 0).map((product, i) => (
+              <div key={i} className="flex items-start justify-between gap-4 bg-slate-900/60 border border-slate-800 hover:border-slate-700 rounded-xl px-5 py-4 transition-colors">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    {product.brand && <span className="text-xs text-amber-500/80 font-semibold uppercase tracking-wide">{product.brand}</span>}
+                  </div>
+                  <p className="text-slate-100 text-sm font-medium">{product.name}</p>
+                  <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">{product.spec}</p>
+                </div>
+                <div className="flex-shrink-0 text-right">
+                  <span className="text-slate-300 text-sm font-semibold">${product.price}</span>
+                  {product.amazonUrl && (
+                    <a href={product.amazonUrl} target="_blank" rel="noopener noreferrer sponsored"
+                      className="block text-xs text-amber-500 hover:text-amber-400 mt-1 transition-colors">
+                      View on Amazon →
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
+            {/* Guide */}
+            <div className="flex items-start justify-between gap-4 bg-amber-500/5 border border-amber-500/20 rounded-xl px-5 py-4">
+              <div>
+                <span className="text-xs text-amber-500/80 font-semibold uppercase tracking-wide">Calm Home</span>
+                <p className="text-slate-100 text-sm font-medium mt-0.5">Setup Guide — {pkg.name}</p>
+                <p className="text-slate-500 text-xs mt-0.5">{pkg.products.find(p => p.price === 0)?.spec}</p>
+              </div>
+              <span className="flex-shrink-0 text-amber-400 text-sm font-semibold">Included</span>
+            </div>
           </div>
+          {pkg.savings && (
+            <div className="mt-4 text-center text-sm text-emerald-400 font-medium">
+              💰 Bundle saves you ${pkg.savings} vs. buying kits individually
+            </div>
+          )}
         </div>
       </section>
 
