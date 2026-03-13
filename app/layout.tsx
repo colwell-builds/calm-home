@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Nav from '@/components/Nav';
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
+
+const GA_ID = 'G-6B74VSM1B7';
 
 export const metadata: Metadata = {
   title: { default: 'Calm Home', template: '%s — Calm Home' },
@@ -23,6 +26,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main>{children}</main>
         <Analytics />
+        {/* Google Analytics 4 */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
         <footer className="border-t border-slate-800 py-10 px-6 text-center">
           <p className="text-lg font-semibold text-white mb-1">Calm Home</p>
           <p className="text-sm text-slate-500 mb-4">Home automation, done for you.</p>
