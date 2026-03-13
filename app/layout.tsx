@@ -24,7 +24,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="border-t border-slate-800 py-10 px-6 text-center">
           <p className="text-lg font-semibold text-white mb-1">Calm Home</p>
           <p className="text-sm text-slate-500 mb-4">Home automation, done for you.</p>
-          <p className="text-xs text-slate-600">© 2026 Calm Home. All rights reserved.</p>
+          <p className="text-xs text-slate-600 mb-6">© 2026 Calm Home. All rights reserved.</p>
+          <p className="text-xs text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Calm Home earns a small commission on purchases made through our links, at no extra cost to you.
+            We only recommend products we&apos;d put in our own homes — and we use affiliate revenue to keep the
+            guides, research, and content free.
+          </p>
         </footer>
       </body>
     </html>

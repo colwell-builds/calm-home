@@ -6,7 +6,17 @@ export const metadata = {
   description: 'Step-by-step setup guide for the Calm Home Good Neighbor package. Get everything running in an afternoon.',
 }
 
-const steps = [
+type Step = {
+  number: number
+  title: string
+  time: string
+  content: string
+  tip: string | null
+  warning: string | null
+  image?: string
+}
+
+const steps: Step[] = [
   {
     number: 1,
     title: "What's in the box",
@@ -22,6 +32,7 @@ const steps = [
     content: `You have two options — wired or battery.\n\n**Wired (replaces existing doorbell):** Turn off power at your breaker. Remove your old doorbell button. Connect the two wires to the Arlo mounting base. Snap the camera unit into the base. Restore power.\n\n**Battery (no wiring):** Mount the bracket at your preferred location and insert the battery unit.\n\nOpen the Arlo app → Add Device → Video Doorbell → follow the on-screen steps.`,
     tip: 'Position the lens at roughly 4–5 feet from the ground (chest height) for the best face detection angle.',
     warning: null,
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&q=80',
   },
   {
     number: 3,
@@ -30,6 +41,7 @@ const steps = [
     content: `All you need is a Phillips screwdriver.\n\n1. Remove your existing deadbolt — unscrew the two screws on the interior plate, then pull out the cylinder from both sides.\n2. Thread the new cable through the door bore hole.\n3. Attach the exterior assembly, then the interior assembly.\n4. Connect the cable between both halves and tighten all screws.\n5. Install 4 AA batteries.\n6. Open the Schlage Home app and follow the Wi-Fi pairing steps to set your first access code.`,
     tip: null,
     warning: 'Standard doors are 1-3/8" to 1-3/4" thick. If yours is non-standard, check the Schlage compatibility page before starting.',
+    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&auto=format&q=80',
   },
   {
     number: 4,
@@ -38,6 +50,7 @@ const steps = [
     content: `Find an outlet roughly halfway between your router and your front door. Plug in the Ring Chime Pro. Open the Ring app → Set Up a Device → Chime Pro and follow the steps.\n\nThis does double duty: it chimes inside when someone rings the doorbell, and it extends your Wi-Fi signal to strengthen the Arlo doorbell's connection.`,
     tip: null,
     warning: null,
+    image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&auto=format&q=80',
   },
   {
     number: 5,
@@ -46,6 +59,7 @@ const steps = [
     content: `Plug the two Kasa EP25 plugs into your porch light outlet and any secondary outdoor or entryway outlet. Open the Kasa app → Add Device → Smart Plug for each one.\n\nSet a schedule: on at sunset, off at 11 PM. Kasa pulls your local sunrise/sunset automatically based on your location.`,
     tip: 'If your porch light is controlled by a wall switch, leave the switch flipped ON permanently. The Kasa plug handles on/off from here on out.',
     warning: null,
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&q=80',
   },
   {
     number: 6,
@@ -62,6 +76,7 @@ const steps = [
     content: `In the Schlage Home app → Access Codes → Add Code.\n\nRecommended codes to create:\n- **Family** — permanent access\n- **Dog walker / cleaner** — scheduled (e.g., weekdays 12–4 PM only)\n- **Guests** — temporary with an expiry date\n\nYou can have up to 100 individual codes.`,
     tip: null,
     warning: 'Keep your programming code (printed on the key tag that came in the box) in a safe place. This code controls the ability to add and delete other codes — never share it.',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&auto=format&q=80',
   },
 ]
 
@@ -112,6 +127,17 @@ export default function GoodNeighborGuide() {
                 <h2 className="text-xl font-semibold text-white">{step.title}</h2>
                 <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded-full">{step.time}</span>
               </div>
+              {step.image && (
+                <div className="mb-4 rounded-xl overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-48 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
               <div className="text-slate-300 leading-relaxed whitespace-pre-line mb-3">
                 {step.content}
               </div>
