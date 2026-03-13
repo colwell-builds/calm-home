@@ -28,6 +28,7 @@ export interface Package {
   faq: { q: string; a: string }[];
   badge?: string;
   savings?: number;    // bundle savings (Full Calm only)
+  featured?: boolean;  // false = explore-only, not shown on homepage
 }
 
 export const PACKAGES: Package[] = [
@@ -51,7 +52,7 @@ export const PACKAGES: Package[] = [
       'Schlage Encode Plus — ANSI Grade 1, 100 access codes, no hub needed',
       'Ring Chime Pro — indoor chime + Wi-Fi extender for the doorbell',
       'Kasa EP25 Smart Plugs (×2) — porch light scheduling & energy monitoring',
-      'Setup guide + 30-day email support',
+      'Calm Home setup guide',
     ],
     guideTopics: [
       'Installing the Arlo doorbell — wired and battery options covered',
@@ -90,7 +91,7 @@ export const PACKAGES: Package[] = [
       'Aqara Door & Window Sensors (×4) — Matter certified, instant alerts',
       'Tapo T100 Motion Sensors (×2) — hallways & living areas',
       '64GB microSD — free local recording, no monthly fee',
-      'Setup guide + 30-day email support',
+      'Calm Home setup guide',
     ],
     guideTopics: [
       'Choosing the right camera position for each room (coverage map included)',
@@ -127,7 +128,7 @@ export const PACKAGES: Package[] = [
       'Ecobee SmartSensor — bedroom temp accuracy + occupancy detection',
       'Kasa EP25 Smart Plugs (×4) — per-outlet energy monitoring',
       'Kasa KL135 Smart Bulbs (×2) — tunable white, sunrise alarm mode',
-      'Setup guide + scheduling templates + 30-day email support',
+      'Calm Home setup guide + scheduling templates',
     ],
     guideTopics: [
       'Installing the Ecobee — wiring diagrams for most HVAC systems',
@@ -159,7 +160,7 @@ export const PACKAGES: Package[] = [
       { name: 'Everything in Safe Kids', brand: '', spec: 'Tapo C210P2 ×2 · Tapo C120 · Aqara Sensors ×4 · Motion Sensors ×2 · 64GB SD', price: 217 },
       { name: 'Everything in Easy Mornings', brand: '', spec: 'Ecobee Enhanced · SmartSensor · Kasa Plugs ×4 · Kasa Bulbs ×2', price: 298 },
       { name: 'TP-Link Tapo Hub H200', amazonUrl: 'https://www.amazon.com/s?k=TP-Link+Tapo+Hub+H200+Smart+Home+Hub+Matter&tag=calmhome02-20', brand: 'TP-Link Tapo', spec: 'Local sensor hub · Matter bridge · faster automations, less cloud dependency', price: 30 },
-      { name: 'Calm Home Setup Guide — Full Calm Edition', brand: 'Calm Home', spec: '5 pre-built automation recipes · unified system setup · 60-day priority support', price: 0 },
+      { name: 'Calm Home Setup Guide — Full Calm Edition', brand: 'Calm Home', spec: '5 pre-built automation recipes · unified system setup guide', price: 0 },
     ],
     includes: [
       'Everything in Good Neighbor (doorbell, lock, chime, plugs ×2)',
@@ -167,7 +168,7 @@ export const PACKAGES: Package[] = [
       'Everything in Easy Mornings (thermostat, room sensor, plugs ×4, bulbs ×2)',
       'TP-Link Tapo Hub H200 — local processing, faster automations',
       '5 pre-built automation recipes (morning, away, bedtime, guest, security)',
-      'Unified setup guide + 60-day priority email support',
+      'Unified setup guide for all packages',
       'Saves $188 vs. buying the three kits individually',
     ],
     guideTopics: [

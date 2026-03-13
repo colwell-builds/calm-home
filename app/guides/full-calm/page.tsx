@@ -77,7 +77,7 @@ export default function FullCalmGuide() {
 
         <div className="bg-slate-900 rounded-2xl p-8 text-center">
           <p className="text-slate-300 mb-2 font-medium">Questions? Something not working?</p>
-          <p className="text-slate-400 text-sm mb-6">Each individual guide has detailed troubleshooting. Start there, and reply to your confirmation email if you&apos;re still stuck.</p>
+          <p className="text-slate-400 text-sm mb-6">Each individual guide has detailed troubleshooting. Start there — the answers to most issues are covered step by step.</p>
           <Link href="/packages/full-calm" className="inline-block bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-6 py-3 rounded-xl transition-colors">
             Back to Full Calm Package →
           </Link>
