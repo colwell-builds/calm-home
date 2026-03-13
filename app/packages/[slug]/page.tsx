@@ -6,6 +6,21 @@ export function generateStaticParams() {
   return PACKAGES.map(p => ({ slug: p.slug }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const pkg = PACKAGES.find(p => p.slug === slug);
+  if (!pkg) return {};
+  return {
+    title: pkg.name,
+    description: `${pkg.tagline} ${pkg.hero.slice(0, 120)}`,
+    openGraph: {
+      title: `${pkg.name} — Calm Home`,
+      description: pkg.tagline,
+      url: `https://calmhome.io/packages/${pkg.slug}`,
+    },
+  };
+}
+
 export default async function PackagePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const pkg = PACKAGES.find(p => p.slug === slug);
@@ -110,6 +125,15 @@ export default async function PackagePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {/* Setup Guide link (Good Neighbor only) */}
+      {pkg.slug === 'good-neighbor' && (
+        <div className="mt-8 text-center">
+          <Link href="/guides/good-neighbor" className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium">
+            📖 View the setup guide →
+          </Link>
+        </div>
+      )}
 
       {/* CTA */}
       <section className="py-16 px-6 text-center bg-slate-900/20">
