@@ -8,7 +8,17 @@ export const metadata = {
   description: 'Step-by-step setup guide for the Calm Home Safe Kids package.',
 }
 
-const steps = [
+type Step = {
+  number: number
+  title: string
+  time: string
+  content: string
+  tip: string | null
+  warning: string | null
+  links?: Array<{ label: string; url: string; type: 'video' | 'product' | 'guide' }>
+}
+
+const steps: Step[] = [
   {
     number: 1,
     title: "What's in the box",
@@ -24,6 +34,12 @@ const steps = [
     content: `**Camera 1 (C210P2) — Main living area or playroom:** Pan/tilt cameras have a 360° horizontal range, so placement near the center of the room works well. Set on a shelf or mount high on a wall.\n\n**Camera 2 (C210P2) — Second child's room or hallway:** Same setup. These cameras can be monitored together in the Tapo app.\n\n**Camera 3 (C120) — Third location:** Use this for a covered porch, garage, or third interior room. It handles indoor and light outdoor use.\n\nAll three plug into standard outlets — no battery, no wiring.`,
     tip: "Aim cameras at the room entrance rather than the far wall. You want to see who comes in, not what's in the corner.",
     warning: null,
+    links: [
+      { label: 'Tapo C210 Camera Setup', url: 'https://www.youtube.com/results?search_query=tp+link+tapo+c210+setup+review', type: 'video' as const },
+      { label: 'Tapo C210 2-Pack on Amazon', url: 'https://www.amazon.com/s?k=TP-Link+Tapo+C210P2+2K+Pan+Tilt+Camera&tag=calmhome02-20', type: 'product' as const },
+      { label: 'Tapo C120 Setup (Everything Smart Home)', url: 'https://www.youtube.com/results?search_query=tp+link+tapo+c120+setup+review', type: 'video' as const },
+      { label: 'Tapo C120 on Amazon', url: 'https://www.amazon.com/s?k=TP-Link+Tapo+C120+2K+Indoor+Outdoor+Security+Camera&tag=calmhome02-20', type: 'product' as const },
+    ],
   },
   {
     number: 3,
@@ -40,6 +56,10 @@ const steps = [
     content: `Each sensor has two pieces: a main unit and a small magnet. They attach with included 3M tape — no tools, no screws.\n\n**Recommended placement:**\n- Front door\n- Back door or garage door\n- Bedroom door (optional — alerts when a child leaves their room at night)\n- Bonus window (basement, playroom, or any point of entry)\n\nTo pair: open the Aqara app → Add Device → follow the steps. These sensors are Matter-certified, so they also work directly with Google Home and Alexa.`,
     tip: 'Place the magnet piece on the moving part (the door), and the main unit on the stationary frame. Keep them within 1/4" of each other when closed.',
     warning: null,
+    links: [
+      { label: 'Aqara Sensor Setup', url: 'https://www.youtube.com/results?search_query=aqara+door+window+sensor+setup+google+home', type: 'video' as const },
+      { label: 'Aqara Sensors on Amazon', url: 'https://www.amazon.com/s?k=Aqara+Door+Window+Sensor+P2&tag=calmhome02-20', type: 'product' as const },
+    ],
   },
   {
     number: 5,
@@ -48,6 +68,10 @@ const steps = [
     content: `The Tapo T100 motion sensors use the same 3M mounting tape. No hub required — they pair directly to the Tapo app via the hub built into the cameras.\n\n**Best locations:**\n- Main hallway (catches movement between bedrooms and common areas)\n- Staircase top or bottom\n\nIn the Tapo app → Automation → Create → When: motion detected → Then: send phone notification + start camera recording.`,
     tip: null,
     warning: null,
+    links: [
+      { label: 'Tapo T100 Motion Sensor Setup', url: 'https://www.youtube.com/results?search_query=tp+link+tapo+t100+motion+sensor+setup', type: 'video' as const },
+      { label: 'T100 Motion Sensor on Amazon', url: 'https://www.amazon.com/s?k=TP-Link+Tapo+T100+Motion+Sensor+2+pack&tag=calmhome02-20', type: 'product' as const },
+    ],
   },
   {
     number: 6,
@@ -113,6 +137,28 @@ export default function SafeKidsGuide() {
                 <h2 className="text-xl font-semibold text-white">{step.title}</h2>
                 <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded-full">{step.time}</span>
               </div>
+              {step.links && step.links.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {step.links.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors ${
+                        link.type === 'video'
+                          ? 'bg-red-900/30 text-red-300 hover:bg-red-900/50 border border-red-800/50'
+                          : link.type === 'product'
+                          ? 'bg-amber-400/10 text-amber-300 hover:bg-amber-400/20 border border-amber-500/30'
+                          : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
+                      }`}
+                    >
+                      {link.type === 'video' ? '▶ ' : link.type === 'product' ? '🛒 ' : '📖 '}
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
               <div className="text-slate-300 leading-relaxed whitespace-pre-line mb-3">{step.content}</div>
               {step.tip && (
                 <div className="bg-amber-400/10 border border-amber-400/30 rounded-lg px-4 py-3 text-sm text-amber-200">

@@ -8,7 +8,17 @@ export const metadata = {
   description: 'Step-by-step setup guide for the Calm Home Easy Mornings package.',
 }
 
-const steps = [
+type Step = {
+  number: number
+  title: string
+  time: string
+  content: string
+  tip: string | null
+  warning: string | null
+  links?: Array<{ label: string; url: string; type: 'video' | 'product' | 'guide' }>
+}
+
+const steps: Step[] = [
   {
     number: 1,
     title: "What's in the box",
@@ -24,6 +34,10 @@ const steps = [
     content: `**Step 1:** Turn off power to your HVAC at the breaker.\n\n**Step 2:** Remove your old thermostat. Take a photo of the wires and which terminals they're in (Rc, Rh, G, Y, W, C, etc.).\n\n**Step 3:** Remove wires from old thermostat, attach the Ecobee wall plate, and reconnect wires to matching labeled terminals. Ecobee's wiring guide in the app matches your specific photo.\n\n**Step 4:** Snap the Ecobee unit onto the wall plate.\n\n**Step 5:** Restore power at the breaker. Follow the on-screen setup to connect to Wi-Fi and set your schedule.`,
     tip: null,
     warning: "Most homes have a C-wire (common wire). If yours doesn't, the Ecobee package includes a Power Extender Kit (PEK) — the app will detect this and walk you through it.",
+    links: [
+      { label: 'Ecobee Install Guide (The Hook Up)', url: 'https://www.youtube.com/results?search_query=ecobee+smart+thermostat+installation+setup', type: 'video' as const },
+      { label: 'Ecobee on Amazon', url: 'https://www.amazon.com/s?k=Ecobee+Smart+Thermostat+Enhanced+EB-STATE6L-01&tag=calmhome02-20', type: 'product' as const },
+    ],
   },
   {
     number: 3,
@@ -48,6 +62,10 @@ const steps = [
     content: `Plug the four EP25 plugs into outlets for: coffee maker, a space heater or fan, bedside lamp, and one bonus outlet of your choice.\n\nOpen Kasa app → Add Device → Smart Plug for each one. Name them clearly (e.g., "Coffee Maker", "Bedroom Fan").\n\n**Schedule ideas:**\n- Coffee maker: on at 6:30 AM, off at 9 AM\n- Space heater: on 30 min before wake time, off when you leave\n- Lamp: on at sunset, off at 11 PM`,
     tip: null,
     warning: 'Never plug high-wattage appliances (hair dryers, toasters) into a smart plug — the EP25 is rated for up to 15A. Coffee makers and space heaters (under 1500W) are fine.',
+    links: [
+      { label: 'Kasa Smart Plug Setup', url: 'https://www.youtube.com/results?search_query=kasa+ep25+smart+plug+setup', type: 'video' as const },
+      { label: 'Kasa EP25 on Amazon', url: 'https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25+4+pack+energy+monitoring&tag=calmhome02-20', type: 'product' as const },
+    ],
   },
   {
     number: 6,
@@ -56,6 +74,10 @@ const steps = [
     content: `Screw the KL135 bulbs into your bedside lamps or kitchen light fixture. Open Kasa app → Add Device → Smart Bulb.\n\n**Sunrise alarm setup:**\nIn the Kasa app → Schedules → create a new schedule for your bulb:\n- Start 20–30 minutes before your alarm\n- Begin at 1% brightness, warm white (2700K)\n- Ramp to 100% brightness over 20 minutes\n\nThis is a natural wake-up that works with your circadian rhythm — you'll wake up before the alarm feeling alert, not dragged out of sleep.`,
     tip: 'Set the sunrise scene for 20 minutes before your alarm. Most people find they wake up naturally before the alarm rings once they try this for a week.',
     warning: null,
+    links: [
+      { label: 'Kasa Smart Bulb Setup', url: 'https://www.youtube.com/results?search_query=kasa+kl135+smart+bulb+setup+google+home', type: 'video' as const },
+      { label: 'Kasa KL135 on Amazon', url: 'https://www.amazon.com/s?k=Kasa+Smart+Bulb+KL135+2+pack&tag=calmhome02-20', type: 'product' as const },
+    ],
   },
   {
     number: 7,
@@ -64,6 +86,9 @@ const steps = [
     content: `**Google Home:** Add → Works with Google → Ecobee → link account. Repeat for Kasa.\n**Alexa:** More → Skills & Games → search Ecobee → Enable. Repeat for Kasa.\n\n**Useful routines to create:**\n- "Good morning" → turn on coffee maker + ramp bulbs to full + set thermostat to Awake\n- "Good night" → turn off all plugs + dim bulbs to 10% + set thermostat to Asleep\n- "Leaving" → set thermostat to Away + turn off all plugs`,
     tip: null,
     warning: null,
+    links: [
+      { label: 'Ecobee + Google Home Setup', url: 'https://www.youtube.com/results?search_query=ecobee+google+home+alexa+setup', type: 'video' as const },
+    ],
   },
 ]
 
@@ -113,6 +138,28 @@ export default function EasyMorningsGuide() {
                 <h2 className="text-xl font-semibold text-white">{step.title}</h2>
                 <span className="text-xs text-slate-500 bg-slate-800 px-2 py-1 rounded-full">{step.time}</span>
               </div>
+              {step.links && step.links.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {step.links.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors ${
+                        link.type === 'video'
+                          ? 'bg-red-900/30 text-red-300 hover:bg-red-900/50 border border-red-800/50'
+                          : link.type === 'product'
+                          ? 'bg-amber-400/10 text-amber-300 hover:bg-amber-400/20 border border-amber-500/30'
+                          : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'
+                      }`}
+                    >
+                      {link.type === 'video' ? '▶ ' : link.type === 'product' ? '🛒 ' : '📖 '}
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
               <div className="text-slate-300 leading-relaxed whitespace-pre-line mb-3">{step.content}</div>
               {step.tip && (
                 <div className="bg-amber-400/10 border border-amber-400/30 rounded-lg px-4 py-3 text-sm text-amber-200">

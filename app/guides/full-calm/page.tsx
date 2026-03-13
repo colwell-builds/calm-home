@@ -62,10 +62,20 @@ export default function FullCalmGuide() {
             <div className="border-l-2 border-amber-400 pl-6">
               <h3 className="text-white font-semibold mb-2">Create a &ldquo;Good night&rdquo; master routine</h3>
               <p>In Google Home or Alexa, create one routine that fires everything at once: lock the front door, turn off porch lights, enable Arlo motion detection, turn off all Kasa plugs, dim bedroom bulbs, and set thermostat to Asleep. One command. Everything handled.</p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <a href="https://www.youtube.com/results?search_query=google+home+whole+home+setup+automations+2024" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors bg-red-900/30 text-red-300 hover:bg-red-900/50 border border-red-800/50">▶ Full Google Home Setup (Paul Hibbert)</a>
+                <a href="https://www.youtube.com/results?search_query=alexa+routines+smart+home+setup+2024" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors bg-red-900/30 text-red-300 hover:bg-red-900/50 border border-red-800/50">▶ Alexa Routines Deep Dive</a>
+                <a href="https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25+4+pack+energy+monitoring&tag=calmhome02-20" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors bg-amber-400/10 text-amber-300 hover:bg-amber-400/20 border border-amber-500/30">🛒 Kasa EP25 on Amazon</a>
+              </div>
             </div>
             <div className="border-l-2 border-amber-400 pl-6">
               <h3 className="text-white font-semibold mb-2">Create a &ldquo;Good morning&rdquo; routine</h3>
               <p>Turn on coffee maker, ramp bedroom bulbs to full, set thermostat to Awake, and display the front door camera on a smart display if you have one. The house is already going by the time you&apos;re up.</p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <a href="https://www.youtube.com/results?search_query=ecobee+smart+thermostat+installation+setup" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors bg-red-900/30 text-red-300 hover:bg-red-900/50 border border-red-800/50">▶ Ecobee Install Guide (The Hook Up)</a>
+                <a href="https://www.amazon.com/s?k=Ecobee+Smart+Thermostat+Enhanced+EB-STATE6L-01&tag=calmhome02-20" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors bg-amber-400/10 text-amber-300 hover:bg-amber-400/20 border border-amber-500/30">🛒 Ecobee on Amazon</a>
+                <a href="https://www.amazon.com/s?k=Kasa+Smart+Bulb+KL135+2+pack&tag=calmhome02-20" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full font-medium transition-colors bg-amber-400/10 text-amber-300 hover:bg-amber-400/20 border border-amber-500/30">🛒 Kasa KL135 on Amazon</a>
+              </div>
             </div>
             <div className="border-l-2 border-amber-400 pl-6">
               <h3 className="text-white font-semibold mb-2">Set geofencing for away mode</h3>
