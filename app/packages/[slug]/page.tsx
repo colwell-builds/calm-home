@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { PACKAGES } from '@/lib/packages';
+import ExploreMore from '@/components/ExploreMore';
 
 export function generateStaticParams() {
   return PACKAGES.map(p => ({ slug: p.slug }));
@@ -134,6 +135,30 @@ export default async function PackagePage({ params }: { params: Promise<{ slug: 
           </Link>
         </div>
       )}
+
+      {/* Explore More */}
+      {(() => {
+        const exploreMap: Record<string, string[]> = {
+          'good-neighbor': ['weekend-away', 'welcome-home', 'never-leave-worried'],
+          'safe-kids': ['pet-parent', 'never-leave-worried', 'weekend-away'],
+          'easy-mornings': ['welcome-home', 'work-from-home'],
+          'full-calm': ['welcome-home', 'weekend-away', 'work-from-home', 'pet-parent', 'never-leave-worried'],
+          'welcome-home': ['easy-mornings', 'work-from-home'],
+          'never-leave-worried': ['good-neighbor', 'safe-kids'],
+          'weekend-away': ['good-neighbor', 'safe-kids'],
+          'work-from-home': ['easy-mornings', 'welcome-home'],
+          'pet-parent': ['safe-kids', 'weekend-away'],
+        }
+        const relatedSlugs = exploreMap[pkg.slug] || []
+        const related = PACKAGES.filter(p => relatedSlugs.includes(p.slug))
+        return related.length > 0 ? (
+          <section className="py-16 px-6 border-b border-slate-800/60">
+            <div className="max-w-3xl mx-auto">
+              <ExploreMore packages={related} />
+            </div>
+          </section>
+        ) : null
+      })()}
 
       {/* CTA */}
       <section className="py-16 px-6 text-center bg-slate-900/20">

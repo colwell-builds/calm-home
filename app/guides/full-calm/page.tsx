@@ -1,5 +1,7 @@
 import Nav from '@/components/Nav'
 import Link from 'next/link'
+import ExploreMore from '@/components/ExploreMore'
+import { PACKAGES } from '@/lib/packages'
 
 export const metadata = {
   title: 'Full Calm Setup Guide',
@@ -7,6 +9,7 @@ export const metadata = {
 }
 
 export default function FullCalmGuide() {
+  const suggestions = PACKAGES.filter(p => ['welcome-home', 'weekend-away', 'work-from-home', 'pet-parent', 'never-leave-worried'].includes(p.slug))
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Nav />
@@ -74,6 +77,8 @@ export default function FullCalmGuide() {
             </div>
           </div>
         </div>
+
+        <ExploreMore packages={suggestions} subheading="Even more automation to layer on top of your Full Calm setup." />
 
         <div className="bg-slate-900 rounded-2xl p-8 text-center">
           <p className="text-slate-300 mb-2 font-medium">Questions? Something not working?</p>

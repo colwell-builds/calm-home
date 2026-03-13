@@ -1,5 +1,7 @@
 import Nav from '@/components/Nav'
 import Link from 'next/link'
+import ExploreMore from '@/components/ExploreMore'
+import { PACKAGES } from '@/lib/packages'
 
 export const metadata = {
   title: 'Easy Mornings Setup Guide',
@@ -85,6 +87,7 @@ const faqs = [
 ]
 
 export default function EasyMorningsGuide() {
+  const suggestions = PACKAGES.filter(p => ['welcome-home', 'work-from-home', 'never-leave-worried'].includes(p.slug))
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Nav />
@@ -135,6 +138,8 @@ export default function EasyMorningsGuide() {
             ))}
           </div>
         </div>
+        <ExploreMore packages={suggestions} subheading="These pair naturally with your Easy Mornings setup." />
+
         <div className="bg-slate-900 rounded-2xl p-8 text-center">
           <p className="text-slate-300 mb-4">Everything you need is in the Easy Mornings package.</p>
           <Link href="/packages/easy-mornings" className="inline-block bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-6 py-3 rounded-xl transition-colors">

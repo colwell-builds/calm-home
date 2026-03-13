@@ -1,5 +1,7 @@
 import Nav from '@/components/Nav'
 import Link from 'next/link'
+import ExploreMore from '@/components/ExploreMore'
+import { PACKAGES } from '@/lib/packages'
 
 export const metadata = {
   title: 'Good Neighbor Setup Guide',
@@ -96,6 +98,7 @@ const faqs = [
 ]
 
 export default function GoodNeighborGuide() {
+  const suggestions = PACKAGES.filter(p => ['weekend-away', 'welcome-home', 'never-leave-worried'].includes(p.slug))
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Nav />
@@ -167,6 +170,8 @@ export default function GoodNeighborGuide() {
             ))}
           </div>
         </div>
+
+        <ExploreMore packages={suggestions} subheading="These pair naturally with your Good Neighbor setup." />
 
         {/* CTA */}
         <div className="bg-slate-900 rounded-2xl p-8 text-center">

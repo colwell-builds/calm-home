@@ -1,5 +1,7 @@
 import Nav from '@/components/Nav'
 import Link from 'next/link'
+import ExploreMore from '@/components/ExploreMore'
+import { PACKAGES } from '@/lib/packages'
 
 export const metadata = {
   title: 'Safe Kids Setup Guide',
@@ -85,6 +87,7 @@ const faqs = [
 ]
 
 export default function SafeKidsGuide() {
+  const suggestions = PACKAGES.filter(p => ['pet-parent', 'never-leave-worried', 'weekend-away'].includes(p.slug))
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <Nav />
@@ -135,6 +138,8 @@ export default function SafeKidsGuide() {
             ))}
           </div>
         </div>
+        <ExploreMore packages={suggestions} subheading="These pair naturally with your Safe Kids setup." />
+
         <div className="bg-slate-900 rounded-2xl p-8 text-center">
           <p className="text-slate-300 mb-4">Everything you need is in the Safe Kids package.</p>
           <Link href="/packages/safe-kids" className="inline-block bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-6 py-3 rounded-xl transition-colors">
