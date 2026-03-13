@@ -10,13 +10,22 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-sm border-b border-slate-800/60">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <svg width="28" height="26" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polygon points="20,2 38,18 2,18" fill="#fbbf24"/>
-            <rect x="5" y="18" width="30" height="16" rx="1" fill="#334155"/>
-            <rect x="15" y="24" width="10" height="10" rx="1" fill="#fbbf24"/>
-            <rect x="7" y="21" width="6" height="5" rx="0.5" fill="#fbbf24" opacity="0.7"/>
-            <rect x="27" y="21" width="6" height="5" rx="0.5" fill="#fbbf24" opacity="0.7"/>
+        <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <svg width="30" height="30" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            {/* Warm glow behind windows */}
+            <ellipse cx="30" cy="38" rx="16" ry="10" fill="#fbbf24" opacity="0.12"/>
+            {/* House body — deep navy, slightly rounded base */}
+            <path d="M8 30 H52 V52 C52 54.2 50.2 56 48 56 H12 C9.8 56 8 54.2 8 52 Z" fill="#1e3a5f"/>
+            {/* Roofline — single clean path, slight softening at peak */}
+            <path d="M30 6 L54 30 H46 L30 15 L14 30 H6 Z" fill="#fbbf24"/>
+            {/* Left window — warm amber glow */}
+            <rect x="12" y="34" width="13" height="11" rx="2.5" fill="#fbbf24" opacity="0.9"/>
+            {/* Right window */}
+            <rect x="35" y="34" width="13" height="11" rx="2.5" fill="#fbbf24" opacity="0.9"/>
+            {/* Arched door — the distinctive element */}
+            <path d="M25 56 V45 A5 5 0 0 1 35 45 V56 Z" fill="#fbbf24" opacity="0.75"/>
+            {/* Chimney — thin, offset, not centered */}
+            <rect x="38" y="10" width="5" height="12" rx="1.5" fill="#fbbf24" opacity="0.6"/>
           </svg>
           <span className="text-white font-bold text-lg tracking-tight">{SITE_NAME}</span>
         </Link>
