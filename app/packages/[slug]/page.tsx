@@ -126,10 +126,10 @@ export default async function PackagePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Setup Guide link (Good Neighbor only) */}
-      {pkg.slug === 'good-neighbor' && (
+      {/* Setup Guide link */}
+      {['good-neighbor', 'safe-kids', 'easy-mornings', 'full-calm'].includes(pkg.slug) && (
         <div className="mt-8 text-center">
-          <Link href="/guides/good-neighbor" className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium">
+          <Link href={`/guides/${pkg.slug}`} className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium">
             📖 View the setup guide →
           </Link>
         </div>
