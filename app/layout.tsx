@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Nav from '@/components/Nav';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: { default: 'Calm Home', template: '%s — Calm Home' },
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-slate-950 text-slate-100 antialiased">
         <Nav />
         <main>{children}</main>
+        <Analytics />
         <footer className="border-t border-slate-800 py-10 px-6 text-center">
           <p className="text-lg font-semibold text-white mb-1">Calm Home</p>
           <p className="text-sm text-slate-500 mb-4">Home automation, done for you.</p>
