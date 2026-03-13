@@ -34,11 +34,11 @@ export const PACKAGES: Package[] = [
   {
     slug: 'good-neighbor',
     name: 'Good Neighbor',
-    tagline: 'You know who\'s at your door. So does everyone else.',
+    tagline: 'Be the neighbor you always meant to be.',
     icon: '🚪',
     price: 479,
     priceLabel: '$479',
-    hero: 'The feeling of knowing your home is secure — even when you\'re not there. See who arrives, lock up from anywhere, and hand out digital keys without a spare set.',
+    hero: 'Garage closed. Porch light on at the right time. No porch pirates. Door locked. You\'re a good neighbor — and you didn\'t have to think about any of it.',
     products: [
       { name: 'Arlo Video Doorbell 2nd Gen', amazonUrl: 'https://www.amazon.com/s?k=Arlo+Essential+Video+Doorbell+2K+2nd+Generation&tag=calmhome02-20', brand: 'Arlo', spec: '2K HDR · 180° view · wired or battery · Google Home & Alexa', price: 130 },
       { name: 'Schlage Encode Plus Smart WiFi Deadbolt', amazonUrl: 'https://www.amazon.com/s?k=Schlage+Encode+Plus+Smart+WiFi+Deadbolt&tag=calmhome02-20', brand: 'Schlage', spec: 'ANSI Grade 1 · built-in Wi-Fi · 100 access codes · Google, Alexa & HomeKit', price: 250 },
@@ -71,7 +71,7 @@ export const PACKAGES: Package[] = [
   {
     slug: 'safe-kids',
     name: 'Safe Kids',
-    tagline: 'You\'ll know the moment anything changes.',
+    tagline: 'Every room. Every kid. Every moment.',
     icon: '🛡️',
     price: 349,
     priceLabel: '$349',
@@ -110,7 +110,7 @@ export const PACKAGES: Package[] = [
   {
     slug: 'easy-mornings',
     name: 'Easy Mornings',
-    tagline: 'The house figures itself out. So can you.',
+    tagline: 'Wake up to a home that\'s already ready.',
     icon: '☀️',
     price: 359,
     priceLabel: '$359',
