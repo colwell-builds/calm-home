@@ -1,65 +1,186 @@
-import Image from "next/image";
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
+import { PACKAGES, SITE_NAME } from '@/lib/packages';
+
+function WaitlistForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const d = await res.json();
+      setStatus(d.ok ? 'done' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  };
+
+  if (status === 'done') {
+    return (
+      <div className="text-center py-4">
+        <div className="text-3xl mb-3">✅</div>
+        <p className="text-lg font-semibold text-white">You&apos;re on the list.</p>
+        <p className="text-slate-400 mt-1 text-sm">We&apos;ll be in touch before launch.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input
+        type="email" required value={email} onChange={e => setEmail(e.target.value)}
+        placeholder="your@email.com"
+        className="flex-1 px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 outline-none focus:border-amber-500 transition-colors text-sm"
+      />
+      <button type="submit" disabled={status === 'loading'}
+        className="px-6 py-3 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-slate-950 font-semibold rounded-lg transition-colors text-sm whitespace-nowrap">
+        {status === 'loading' ? 'Joining…' : 'Join Waitlist'}
+      </button>
+      {status === 'error' && <p className="text-red-400 text-xs mt-1 w-full">Something went wrong — try again.</p>}
+    </form>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="pt-16">
+
+      {/* ── Hero ── */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6 py-24">
+        {/* Background grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b22_1px,transparent_1px),linear-gradient(to_bottom,#1e293b22_1px,transparent_1px)] bg-[size:40px_40px]" />
+        {/* Radial glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative text-center max-w-3xl mx-auto">
+          <div className="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-xs font-semibold uppercase tracking-widest mb-6 animate-fade-in">
+            Launching Spring 2026
+          </div>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-tight animate-fade-in-up">
+            Your home,<br />
+            <span className="text-amber-400">handled.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 text-lg text-slate-400 max-w-xl mx-auto animate-fade-in-up delay-100">
+            Home automation kits built around the moments that matter. The front door. The kids. The morning routine. Every kit includes the hardware, the guide, and everything in between.
           </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-200">
+            <Link href="#packages"
+              className="px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold rounded-xl transition-colors text-sm">
+              See Our Packages
+            </Link>
+            <Link href="#waitlist"
+              className="px-8 py-3.5 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white rounded-xl transition-colors text-sm">
+              Join the Waitlist
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── How It Works ── */}
+      <section id="how-it-works" className="py-24 px-6 border-t border-slate-800/60">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-center text-3xl font-bold text-white mb-4">How it works</h2>
+          <p className="text-center text-slate-400 mb-16 max-w-lg mx-auto">
+            Three steps from order to a genuinely smarter home.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { step: '01', icon: '📦', title: 'Choose a package', desc: 'Pick the kit that fits your goal — entry, safety, climate, or the whole starter bundle.' },
+              { step: '02', icon: '🚚', title: 'We ship everything', desc: 'Every device in the kit arrives together, pre-selected for compatibility.' },
+              { step: '03', icon: '✅', title: 'Follow the guide', desc: 'Step-by-step setup guide walks you through every device. Most setups take under two hours.' },
+            ].map(({ step, icon, title, desc }) => (
+              <div key={step} className="relative bg-slate-900/60 border border-slate-800 rounded-2xl p-8 text-center hover:border-slate-700 transition-colors">
+                <div className="text-xs font-bold text-amber-500/60 tracking-widest mb-4">{step}</div>
+                <div className="text-4xl mb-4">{icon}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* ── Packages ── */}
+      <section id="packages" className="py-24 px-6 bg-slate-900/20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-3xl font-bold text-white mb-4">Our packages</h2>
+          <p className="text-center text-slate-400 mb-16 max-w-lg mx-auto">
+            Every kit is hardware + setup guide + everything you need to actually get it working.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PACKAGES.map(pkg => (
+              <div key={pkg.slug}
+                className="relative flex flex-col bg-slate-900 border border-slate-800 hover:border-amber-500/40 rounded-2xl p-6 transition-all hover:-translate-y-1 group">
+                {pkg.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-amber-500 text-slate-950 text-xs font-bold rounded-full whitespace-nowrap">
+                    {pkg.badge}
+                  </div>
+                )}
+                <div className="text-4xl mb-4">{pkg.icon}</div>
+                <h3 className="text-lg font-bold text-white mb-1">{pkg.name}</h3>
+                <p className="text-sm text-slate-400 mb-4 leading-relaxed">{pkg.tagline}</p>
+                <ul className="space-y-1.5 mb-6 flex-1">
+                  {pkg.includes.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-slate-400">
+                      <span className="text-amber-500 mt-0.5 flex-shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-xl font-bold text-white">{pkg.priceLabel}</span>
+                  <Link href={`/packages/${pkg.slug}`}
+                    className="px-4 py-2 text-xs font-semibold bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 rounded-lg transition-all">
+                    Learn More →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Value Props ── */}
+      <section className="py-24 px-6 border-t border-slate-800/60">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-center text-3xl font-bold text-white mb-16">Why {SITE_NAME}?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: '🎯', title: 'Built around feelings, not features', desc: 'We didn\'t name our kits "Smart Entry Package v2." We named them Good Neighbor and Safe Kids — because that\'s what you actually want.' },
+              { icon: '📋', title: 'Guides that actually work', desc: 'Written by people who have set up these exact devices in real homes. No jargon. No assumed knowledge. Most setups take a weekend.' },
+              { icon: '🔌', title: 'Everything plays nice together', desc: 'Every device in a kit is tested for compatibility before it goes in the box. It connects. No surprises.' },
+            ].map(({ icon, title, desc }) => (
+              <div key={title} className="text-center">
+                <div className="text-4xl mb-4">{icon}</div>
+                <h3 className="text-lg font-semibold text-white mb-3">{title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Waitlist ── */}
+      <section id="waitlist" className="py-24 px-6 bg-slate-900/40 border-t border-slate-800/60">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="text-4xl mb-6">📬</div>
+          <h2 className="text-3xl font-bold text-white mb-4">Be first when we launch.</h2>
+          <p className="text-slate-400 mb-10 text-sm leading-relaxed max-w-md mx-auto">
+            Calm Home launches Spring 2026. Join the waitlist for early access and launch pricing.
+          </p>
+          <WaitlistForm />
+        </div>
+      </section>
+
     </div>
   );
 }
