@@ -40,10 +40,10 @@ export const PACKAGES: Package[] = [
     priceLabel: '$479',
     hero: 'The feeling of knowing your home is secure — even when you\'re not there. See who arrives, lock up from anywhere, and hand out digital keys without a spare set.',
     products: [
-      { name: 'Arlo Video Doorbell 2nd Gen', brand: 'Arlo', spec: '2K HDR · 180° view · wired or battery · Google Home & Alexa', price: 130 },
-      { name: 'Schlage Encode Plus Smart WiFi Deadbolt', brand: 'Schlage', spec: 'ANSI Grade 1 · built-in Wi-Fi · 100 access codes · Google, Alexa & HomeKit', price: 250 },
-      { name: 'Ring Chime Pro 2nd Gen', brand: 'Ring', spec: 'Indoor doorbell chime · Wi-Fi range extender built in', price: 35 },
-      { name: 'Kasa Smart Plug EP25 (2-pack)', brand: 'Kasa / TP-Link', spec: 'Energy monitoring · porch & exterior light scheduling · Google Home & Alexa', price: 25 },
+      { name: 'Arlo Video Doorbell 2nd Gen', amazonUrl: 'https://www.amazon.com/s?k=Arlo+Essential+Video+Doorbell+2K+2nd+Generation&tag=calmhome02-20', brand: 'Arlo', spec: '2K HDR · 180° view · wired or battery · Google Home & Alexa', price: 130 },
+      { name: 'Schlage Encode Plus Smart WiFi Deadbolt', amazonUrl: 'https://www.amazon.com/s?k=Schlage+Encode+Plus+Smart+WiFi+Deadbolt&tag=calmhome02-20', brand: 'Schlage', spec: 'ANSI Grade 1 · built-in Wi-Fi · 100 access codes · Google, Alexa & HomeKit', price: 250 },
+      { name: 'Ring Chime Pro 2nd Gen', amazonUrl: 'https://www.amazon.com/s?k=Ring+Chime+Pro+2nd+Generation&tag=calmhome02-20', brand: 'Ring', spec: 'Indoor doorbell chime · Wi-Fi range extender built in', price: 35 },
+      { name: 'Kasa Smart Plug EP25 (2-pack)', amazonUrl: 'https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25+2+pack+energy+monitoring&tag=calmhome02-20', brand: 'Kasa / TP-Link', spec: 'Energy monitoring · porch & exterior light scheduling · Google Home & Alexa', price: 25 },
       { name: 'Calm Home Setup Guide', brand: 'Calm Home', spec: 'Step-by-step install, access codes, automations & app setup', price: 0 },
     ],
     includes: [
@@ -77,11 +77,11 @@ export const PACKAGES: Package[] = [
     priceLabel: '$349',
     hero: 'The quiet confidence of knowing where the kids are, what\'s happening at home, and that you\'ll hear about it the second something doesn\'t look right.',
     products: [
-      { name: 'TP-Link Tapo C210P2 2K Indoor Camera (2-pack)', brand: 'TP-Link Tapo', spec: '2K pan/tilt · local microSD storage · Google Home & Alexa · no subscription needed', price: 65 },
-      { name: 'TP-Link Tapo C120 Indoor/Outdoor Camera', brand: 'TP-Link Tapo', spec: '2K · color night vision · motion zones · third room, hallway, or garage', price: 30 },
-      { name: 'Aqara Door & Window Sensor P2 (4-pack)', brand: 'Aqara', spec: 'Matter certified · instant alerts · front door, back door, garage, windows', price: 80 },
-      { name: 'TP-Link Tapo T100 Motion Sensor (2-pack)', brand: 'TP-Link Tapo', spec: 'Living areas & hallways · triggers camera recording and phone alerts', price: 30 },
-      { name: '64GB SanDisk microSD Card', brand: 'SanDisk', spec: 'Local camera storage — no cloud subscription required', price: 12 },
+      { name: 'TP-Link Tapo C210P2 2K Indoor Camera (2-pack)', amazonUrl: 'https://www.amazon.com/s?k=TP-Link+Tapo+C210P2+2K+Pan+Tilt+Indoor+Security+Camera+2+Pack&tag=calmhome02-20', brand: 'TP-Link Tapo', spec: '2K pan/tilt · local microSD storage · Google Home & Alexa · no subscription needed', price: 65 },
+      { name: 'TP-Link Tapo C120 Indoor/Outdoor Camera', amazonUrl: 'https://www.amazon.com/s?k=TP-Link+Tapo+C120+2K+Indoor+Outdoor+Security+Camera&tag=calmhome02-20', brand: 'TP-Link Tapo', spec: '2K · color night vision · motion zones · third room, hallway, or garage', price: 30 },
+      { name: 'Aqara Door & Window Sensor P2 (4-pack)', amazonUrl: 'https://www.amazon.com/s?k=Aqara+Door+Window+Sensor+P2+4+pack+Matter&tag=calmhome02-20', brand: 'Aqara', spec: 'Matter certified · instant alerts · front door, back door, garage, windows', price: 80 },
+      { name: 'TP-Link Tapo T100 Motion Sensor (2-pack)', amazonUrl: 'https://www.amazon.com/s?k=TP-Link+Tapo+T100+Motion+Sensor+2+pack&tag=calmhome02-20', brand: 'TP-Link Tapo', spec: 'Living areas & hallways · triggers camera recording and phone alerts', price: 30 },
+      { name: '64GB SanDisk microSD Card', amazonUrl: 'https://www.amazon.com/s?k=SanDisk+64GB+microSD+card+Class+10&tag=calmhome02-20', brand: 'SanDisk', spec: 'Local camera storage — no cloud subscription required', price: 12 },
       { name: 'Calm Home Setup Guide', brand: 'Calm Home', spec: 'Camera placement map, alert zones, family sharing & privacy modes', price: 0 },
     ],
     includes: [
@@ -116,10 +116,10 @@ export const PACKAGES: Package[] = [
     priceLabel: '$359',
     hero: 'A home that\'s already at the right temperature when you wake up. One that stops heating empty rooms, quietly saves money while you\'re at work, and eases the lights up before your alarm even goes off.',
     products: [
-      { name: 'Ecobee Smart Thermostat Enhanced', brand: 'Ecobee', spec: 'Learning schedule · room sensor included · Google Home, Alexa & HomeKit · ENERGY STAR', price: 180 },
-      { name: 'Ecobee SmartSensor (add-on)', brand: 'Ecobee', spec: 'Bedroom temperature accuracy · occupancy detection · pairs with thermostat', price: 40 },
-      { name: 'Kasa Smart Plug EP25 (4-pack)', brand: 'Kasa / TP-Link', spec: 'Per-outlet energy monitoring · coffee maker, fans, lamps, space heaters', price: 50 },
-      { name: 'Kasa Smart Bulb KL135 (2-pack)', brand: 'Kasa / TP-Link', spec: 'Tunable white + color · sunrise alarm simulation · bedroom or kitchen', price: 28 },
+      { name: 'Ecobee Smart Thermostat Enhanced', amazonUrl: 'https://www.amazon.com/s?k=Ecobee+Smart+Thermostat+Enhanced+EB-STATE6L-01&tag=calmhome02-20', brand: 'Ecobee', spec: 'Learning schedule · room sensor included · Google Home, Alexa & HomeKit · ENERGY STAR', price: 180 },
+      { name: 'Ecobee SmartSensor (add-on)', amazonUrl: 'https://www.amazon.com/s?k=Ecobee+SmartSensor+Room+Sensor&tag=calmhome02-20', brand: 'Ecobee', spec: 'Bedroom temperature accuracy · occupancy detection · pairs with thermostat', price: 40 },
+      { name: 'Kasa Smart Plug EP25 (4-pack)', amazonUrl: 'https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25+4+pack+energy+monitoring&tag=calmhome02-20', brand: 'Kasa / TP-Link', spec: 'Per-outlet energy monitoring · coffee maker, fans, lamps, space heaters', price: 50 },
+      { name: 'Kasa Smart Bulb KL135 (2-pack)', amazonUrl: 'https://www.amazon.com/s?k=Kasa+Smart+Bulb+KL135+tunable+white+color+2+pack&tag=calmhome02-20', brand: 'Kasa / TP-Link', spec: 'Tunable white + color · sunrise alarm simulation · bedroom or kitchen', price: 28 },
       { name: 'Calm Home Setup Guide', brand: 'Calm Home', spec: 'Thermostat wiring guide, schedule templates, plug & light automations', price: 0 },
     ],
     includes: [
@@ -158,7 +158,7 @@ export const PACKAGES: Package[] = [
       { name: 'Everything in Good Neighbor', brand: '', spec: 'Arlo 2K Doorbell · Schlage Encode Plus · Ring Chime Pro · Kasa Plugs ×2', price: 440 },
       { name: 'Everything in Safe Kids', brand: '', spec: 'Tapo C210P2 ×2 · Tapo C120 · Aqara Sensors ×4 · Motion Sensors ×2 · 64GB SD', price: 217 },
       { name: 'Everything in Easy Mornings', brand: '', spec: 'Ecobee Enhanced · SmartSensor · Kasa Plugs ×4 · Kasa Bulbs ×2', price: 298 },
-      { name: 'TP-Link Tapo Hub H200', brand: 'TP-Link Tapo', spec: 'Local sensor hub · Matter bridge · faster automations, less cloud dependency', price: 30 },
+      { name: 'TP-Link Tapo Hub H200', amazonUrl: 'https://www.amazon.com/s?k=TP-Link+Tapo+Hub+H200+Smart+Home+Hub+Matter&tag=calmhome02-20', brand: 'TP-Link Tapo', spec: 'Local sensor hub · Matter bridge · faster automations, less cloud dependency', price: 30 },
       { name: 'Calm Home Setup Guide — Full Calm Edition', brand: 'Calm Home', spec: '5 pre-built automation recipes · unified system setup · 60-day priority support', price: 0 },
     ],
     includes: [
