@@ -23,6 +23,49 @@ const categoryLabels: Record<string, string> = {
   review: 'Review',
 }
 
+const youtubers = [
+  {
+    name: 'The Hook Up',
+    handle: '@TheHookUp',
+    description: 'One of the most trusted voices in smart home. Deep technical dives on everything from automations to security — never dumbed down.',
+    url: 'https://www.youtube.com/@TheHookUp',
+    subs: '700K+',
+    icon: '🔧',
+  },
+  {
+    name: 'Smart Home Solver',
+    handle: '@SmartHomeSolver',
+    description: "Practical, accessible tutorials for real homes. Great for beginners who want to actually understand what they're setting up.",
+    url: 'https://www.youtube.com/@SmartHomeSolver',
+    subs: '400K+',
+    icon: '💡',
+  },
+  {
+    name: 'Everything Smart Home',
+    handle: '@EverythingSmartHome',
+    description: "Product reviews and comparisons with a focus on real-world performance. Solid picks if you're shopping for specific devices.",
+    url: 'https://www.youtube.com/@EverythingSmartHome',
+    subs: '200K+',
+    icon: '📱',
+  },
+  {
+    name: 'Paul Hibbert',
+    handle: '@PaulHibbert',
+    description: "Beginner-friendly reviews with honest takes. If you're new to smart home and overwhelmed, start here.",
+    url: 'https://www.youtube.com/@PaulHibbert',
+    subs: '300K+',
+    icon: '🏠',
+  },
+  {
+    name: 'Lon.TV',
+    handle: '@LonSeidman',
+    description: 'Meticulous, no-fluff device reviews. Lon tests everything thoroughly — great when you want the full picture before buying.',
+    url: 'https://www.youtube.com/@LonSeidman',
+    subs: '500K+',
+    icon: '📺',
+  },
+]
+
 export default function BlogPage() {
   const posts = getAllPosts()
 
@@ -67,6 +110,36 @@ export default function BlogPage() {
             ))}
           </div>
         )}
+
+        {/* YouTube creators */}
+        <div className="mt-20 pt-16 border-t border-slate-800">
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-2">Learn from the best</h2>
+            <p className="text-slate-400">The home automation YouTube channels actually worth your time.</p>
+          </div>
+          <div className="space-y-4">
+            {youtubers.map(yt => (
+              <a
+                key={yt.handle}
+                href={yt.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-slate-900 hover:bg-slate-800 rounded-2xl p-5 transition-colors group"
+              >
+                <div className="text-2xl w-10 text-center flex-shrink-0">{yt.icon}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="font-semibold text-white group-hover:text-amber-400 transition-colors">{yt.name}</span>
+                    <span className="text-xs text-slate-500">{yt.handle}</span>
+                    <span className="text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full">{yt.subs} subscribers</span>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">{yt.description}</p>
+                </div>
+                <span className="text-amber-400 self-center flex-shrink-0 group-hover:translate-x-0.5 transition-transform">↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </main>
     </div>
   )
