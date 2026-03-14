@@ -119,7 +119,7 @@ export const PACKAGES: Package[] = [
     products: [
       { name: 'Ecobee Smart Thermostat Enhanced', amazonUrl: 'https://www.amazon.com/ecobee-Smart-Thermostat-Enhanced-works/dp/B09XXTQPXC?linkCode=ll2&tag=calmhome02-20&linkId=c2bda7840fff236c1366bf352f8cad1a&language=en_US&ref_=as_li_ss_tl', brand: 'Ecobee', spec: 'Learning schedule · room sensor included · Google Home, Alexa & HomeKit · ENERGY STAR', price: 180 },
       { name: 'Ecobee SmartSensor (add-on)', amazonUrl: 'https://www.amazon.com/s?k=Ecobee+SmartSensor+Room+Sensor&tag=calmhome02-20', brand: 'Ecobee', spec: 'Bedroom temperature accuracy · occupancy detection · pairs with thermostat', price: 40 },
-      { name: 'Kasa Smart Plug EP25 (4-pack)', amazonUrl: 'https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25+4+pack&linkCode=ll2&tag=calmhome02-20&linkId=37e1af93dbdf8bf060b9cca6638d8a91&language=en_US&ref_=as_li_ss_tl', brand: 'Kasa / TP-Link', spec: 'Per-outlet energy monitoring · coffee maker, fans, lamps, space heaters', price: 50 },
+      { name: 'Kasa Smart Plug EP25 (2-pack × 2)', amazonUrl: 'https://www.amazon.com/Kasa-Smart-Supported-Scheduling-EP25P2/dp/B0CHDCYSW7?linkCode=ll2&tag=calmhome02-20&linkId=f41bca503408c3cac4288731665e3d82&language=en_US&ref_=as_li_ss_tl', brand: 'Kasa / TP-Link', spec: 'Per-outlet energy monitoring · coffee maker, fans, lamps, space heaters', price: 50 },
       { name: 'Kasa Smart Bulb KL135 (2-pack)', amazonUrl: 'https://www.amazon.com/Kasa-Smart-Changing-Compatible-KL135P2/dp/B08TB6VXFL?linkCode=ll2&tag=calmhome02-20&linkId=95cb1ede5c63058e53801311456f21c1&language=en_US&ref_=as_li_ss_tl', brand: 'Kasa / TP-Link', spec: 'Tunable white + color · sunrise alarm simulation · bedroom or kitchen', price: 28 },
       { name: 'Calm Home Setup Guide', brand: 'Calm Home', spec: 'Thermostat wiring guide, schedule templates, plug & light automations', price: 0 },
     ],
@@ -229,7 +229,7 @@ export const PACKAGES: Package[] = [
     hero: 'Check that the stove is off, the doors are closed, and nothing is running — from wherever you are.',
     badge: 'Peace of mind',
     products: [
-      { name: 'Kasa Smart Plug EP25 (4-pack)', brand: 'Kasa / TP-Link', spec: 'Monitor and cut power to stove, iron, space heater, curling iron', price: 50, amazonUrl: 'https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25+4+pack&linkCode=ll2&tag=calmhome02-20&linkId=37e1af93dbdf8bf060b9cca6638d8a91&language=en_US&ref_=as_li_ss_tl' },
+      { name: 'Kasa Smart Plug EP25 (2-pack × 2)', brand: 'Kasa / TP-Link', spec: 'Monitor and cut power to stove, iron, space heater, curling iron', price: 50, amazonUrl: 'https://www.amazon.com/Kasa-Smart-Supported-Scheduling-EP25P2/dp/B0CHDCYSW7?linkCode=ll2&tag=calmhome02-20&linkId=f41bca503408c3cac4288731665e3d82&language=en_US&ref_=as_li_ss_tl' },
       { name: 'Aqara Door & Window Sensor P2 (2-pack)', brand: 'Aqara', spec: 'Matter certified — instant alert if a door or window is left open', price: 40, amazonUrl: 'https://www.amazon.com/Aqara-Requires-Contact-Automation-Supports/dp/B0BTL8B72D?linkCode=ll2&tag=calmhome02-20&linkId=5e4a409d1a7eee2a1d98ceb4eeb95b7a&language=en_US&ref_=as_li_ss_tl' },
       { name: 'Calm Home Setup Guide', brand: 'Calm Home', spec: 'Leaving home checklist, auto-off setup, remote power monitoring', price: 0 },
     ],
@@ -319,15 +319,15 @@ export const PACKAGES: Package[] = [
     name: 'Pet Parent',
     tagline: 'Someone\'s always keeping an eye on them.',
     icon: '🐾',
-    price: 61,
-    priceLabel: '$61',
+    price: 73,
+    priceLabel: '$73',
     featured: false,
     hero: 'Check in on your pet from anywhere. Know when they\'re active. Set up automations around their routine.',
     badge: 'Great with Safe Kids',
     products: [
       { name: 'TP-Link Tapo C210 2K Indoor Camera', brand: 'TP-Link Tapo', spec: 'Pan/tilt 360°, local storage, no subscription, two-way audio', price: 33, amazonUrl: 'https://www.amazon.com/indoor-pet-wifi-camera-tapo/dp/B09Y8TLP25?linkCode=ll2&tag=calmhome02-20&linkId=3757682ba9430229a83c49c251293610&language=en_US&ref_=as_li_ss_tl' },
       { name: 'TP-Link Tapo T100 Motion Sensor', brand: 'TP-Link Tapo', spec: 'Detect pet activity patterns, log movement throughout the day', price: 15, amazonUrl: 'https://www.amazon.com/TP-Link-Tapo-Sensitivity-Notification-T100/dp/B0BYH66C3S?linkCode=ll2&tag=calmhome02-20&linkId=6ab088f0d1490a445b00959481008d33&language=en_US&ref_=as_li_ss_tl' },
-      { name: 'Kasa Smart Plug EP25', brand: 'Kasa / TP-Link', spec: 'Automatic pet feeder, fan, or water fountain on a schedule', price: 13, amazonUrl: 'https://www.amazon.com/s?k=Kasa+Smart+Plug+EP25&linkCode=ll2&tag=calmhome02-20&linkId=150d744101bce7144a18861f581b6960&language=en_US&ref_=as_li_ss_tl' },
+      { name: 'Kasa Smart Plug EP25 (2-pack)', brand: 'Kasa / TP-Link', spec: 'Automatic pet feeder, fan, or water fountain on a schedule', price: 25, amazonUrl: 'https://www.amazon.com/Kasa-Smart-Supported-Scheduling-EP25P2/dp/B0CHDCYSW7?linkCode=ll2&tag=calmhome02-20&linkId=f41bca503408c3cac4288731665e3d82&language=en_US&ref_=as_li_ss_tl' },
       { name: 'Calm Home Setup Guide', brand: 'Calm Home', spec: 'Camera placement, activity alerts, feeder scheduling', price: 0 },
     ],
     includes: [

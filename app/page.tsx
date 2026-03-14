@@ -48,7 +48,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { step: '01', icon: '📦', title: 'Choose a package', desc: 'Pick the kit that fits your goal — entry, safety, climate, or the whole starter bundle.' },
-              { step: '02', icon: '📦', title: 'Order from Amazon', desc: 'Every product links directly to Amazon. Shop individually or all at once — fast, trusted delivery, no middleman.' },
+              { step: '02', icon: '📦', title: 'Order from Amazon', desc: 'Every product links directly to Amazon. Shop individually or all at once — same prices, same Prime benefits, no middleman.' },
               { step: '03', icon: '✅', title: 'Follow the guide', desc: 'Step-by-step setup guide walks you through every device. Most setups take under two hours.' },
             ].map(({ step, icon, title, desc }) => (
               <div key={step} className="relative bg-slate-900/60 border border-slate-800 rounded-2xl p-8 text-center hover:border-slate-700 transition-colors">
