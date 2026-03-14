@@ -36,6 +36,10 @@ export default function Nav() {
           <Link href="/#packages" className="text-sm text-slate-400 hover:text-white transition-colors">Packages</Link>
           <Link href="/about" className="text-sm text-slate-400 hover:text-white transition-colors">About</Link>
           <Link href="/blog" className="text-sm text-slate-400 hover:text-white transition-colors">Blog</Link>
+          <Link href="/quiz" className="text-sm text-amber-400 hover:text-amber-300 font-medium transition-colors flex items-center gap-1.5">
+            <span className="inline-flex items-center justify-center bg-amber-400/15 rounded-full px-2 py-0.5 text-xs font-semibold">✨</span>
+            Find my package
+          </Link>
         </div>
 
         {/* CTA */}
@@ -59,6 +63,10 @@ export default function Nav() {
           <Link href="/#packages" onClick={() => setOpen(false)} className="text-sm text-slate-300">Packages</Link>
           <Link href="/about" onClick={() => setOpen(false)} className="text-sm text-slate-300">About</Link>
           <Link href="/blog" onClick={() => setOpen(false)} className="text-sm text-slate-300">Blog</Link>
+          <Link href="/quiz" onClick={() => setOpen(false)}
+            className="text-sm text-amber-400 font-medium flex items-center gap-2">
+            <span>✨</span> Find my package
+          </Link>
           <Link href="/#waitlist" onClick={() => setOpen(false)}
             className="w-full text-center px-4 py-2 bg-amber-500 text-slate-950 text-sm font-semibold rounded-lg">
             Join the Waitlist

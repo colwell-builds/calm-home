@@ -102,6 +102,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Quiz CTA ── */}
+      <section className="py-16 px-6 border-t border-slate-800/60">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-amber-400 text-sm font-medium tracking-wide uppercase mb-3">Not sure where to start?</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Find the right package in 60 seconds</h2>
+          <p className="text-slate-400 mb-8">Answer 4 quick questions and we&apos;ll recommend the package that fits your home, your budget, and your life.</p>
+          <Link href="/quiz" className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-900 font-semibold px-8 py-4 rounded-full transition-colors text-lg">
+            Take the quiz →
+          </Link>
+        </div>
+      </section>
+
       {/* ── Blog Preview ── */}
       <BlogPreview />
 
